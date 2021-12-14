@@ -50,7 +50,7 @@
 
         <div class="item__bottom">
           <div class="item__post-info">
-            <p class="item__comments-counter">{% len({{comment}}) %}</p>
+            <p class="item__comments-counter">{{count}}</p>
             <div class="item__counter">
               <img src="/static/img/eye.png" alt="" class="item__counter-icon" width="26">
               <span class="item__counter-text">1023</span>
@@ -62,6 +62,7 @@
               <b>{{comment.commenter_name}}</b> {{comment.comment}}
             </p>
           </div>
+          {% endfor %}
           <form action="/" class="item__comment-form comment-form">
             <div class="comment-form__input-wrap">
               <input type="search" class="comment-form__input" placeholder="Ваше имя">
@@ -72,7 +73,7 @@
             <button type="submit" class="comment-form__btn">Отправить</button>
           </form>
         </div>
-        {% endfor %}
+
       </div>
     </section>
   </main>

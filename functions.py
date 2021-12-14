@@ -41,11 +41,18 @@ def post_and_comment():
 def comment_post_id(pk):
     """Выбираем комменты по pk"""
     posts, comments, bookmarks = open_file()
-    comment_post_id = []
+    post_comments = []
     for comment in comments:
         if comment["post_id"] == pk:
-            comment_post_id.append(comment)
+            post_comments.append(comment)
+    return post_comments
 
-    return comment_post_id
 
-print(comment_post_id(7))
+def one_post(pk):
+    posts, comments, bookmarks = open_file()
+    for post in posts:
+        if post["pk"] == pk:
+            return post
+
+
+# print(one_post(7))
