@@ -55,4 +55,13 @@ def one_post(pk):
             return post
 
 
-# print(one_post(7))
+def user_posts(username):
+    posts = post_and_comment()
+    posts_user = []
+    for post in posts:
+        if post["poster_name"] == username:
+            posts_user.append(post)
+    return posts_user
+
+
+# print(user_posts('leo'))
