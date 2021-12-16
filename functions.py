@@ -64,4 +64,14 @@ def user_posts(username):
     return posts_user
 
 
-# print(user_posts('leo'))
+def serch_post(s):
+    """ищет посты, где есть s"""
+    posts = post_and_comment()  # cписок постов с комментариями
+    posts_search = []
+    # posts_search = [x for x in posts if s in x.get("content")]
+    for post in posts:
+        if s in post["content"]:
+            posts_search.append(post)
+    return posts_search
+
+# print(serch_post('лампочка'))

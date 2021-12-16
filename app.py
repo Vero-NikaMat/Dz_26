@@ -1,6 +1,7 @@
 
-from flask import Flask, request, render_template
-from functions import open_file, post_and_comment, comment_post_id, one_post, user_posts
+from flask import Flask, request, render_template, abort
+
+from functions import open_file, post_and_comment, comment_post_id, one_post, user_posts, serch_post
 
 posts, comments, bookmarks = open_file()
 app = Flask(__name__)
@@ -25,14 +26,17 @@ def posts_uno(pk):
 @app.route('/users/<username>')
 def posts_name(username):
     posts = user_posts(username)
-
     return render_template('user-feed.html', posts=posts)
 
 
 @app.route('/search/')
 def search_posts():
-
+    s = request.args.get("word")
+    if not s:
+        abort(400)
+    posts = serch_post(s)
+    return render_template('search.html', posts=posts, count=len(posts))
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True, port=8080)
