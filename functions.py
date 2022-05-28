@@ -68,7 +68,6 @@ def serch_post(s):
     """ищет посты, где есть s"""
     posts = post_and_comment()  # cписок постов с комментариями
     posts_search = []
-    # posts_search = [x for x in posts if s in x.get("content")]
     for post in posts:
         if s in post["content"]:
             posts_search.append(post)
