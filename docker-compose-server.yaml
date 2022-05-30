@@ -4,3 +4,5 @@ services:
     image: veronikamatuk/insta:version-1
     ports:
       - 80:80
+   env_file:
+      - ./envs.env
