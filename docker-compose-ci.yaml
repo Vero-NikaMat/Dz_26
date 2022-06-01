@@ -5,5 +5,3 @@ services:
     image: veronikamatuk/insta:$GITHUB_REF_NAME-$GITHUB_RUN_ID
     ports:
       - 80:80
-    env_file:
-      - ./envs.env
