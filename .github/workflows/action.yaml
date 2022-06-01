@@ -32,7 +32,7 @@ jobs:
           target: "insta"
           strip_components: 1
       - name: run docker-compose
-        uses: appleboy/ssh-action@master
+        uses: appleboy/ssh-action@main
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.SSH_USERNAME }}
