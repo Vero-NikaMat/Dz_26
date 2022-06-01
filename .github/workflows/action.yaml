@@ -28,7 +28,7 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.SSH_USERNAME }}
           password: ${{ secrets.SSH_PASSWORD }}
-          source: "deploy1/*"
+          source: "deploy/*"
           target: "insta"
           strip_components: 1
       - name: run docker-compose
